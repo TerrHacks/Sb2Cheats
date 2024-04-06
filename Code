@@ -189,8 +189,7 @@ local mobs_on_floor = {
         "Gloom Shroom",
         "Horned Sailfin Iguana",
         "Blightmouth",
-        "Snapper",
-        "Smashroom the Mushroom Behemoth"
+        "Snapper"
     },
 
     [548878321] = { -- floor 8
@@ -333,7 +332,7 @@ local bosses_on_floor = {
 
     [582198062] = { -- floor 7
         "Frogazoid",
-        "Smashroom"
+        "Smashroom the Mushroom Behemoth"
     },
 
     [548878321] = { -- floor 8
@@ -427,7 +426,7 @@ while true do
     end
     
     if Services then
-        break
+    	break
     end
 
     wait(1)
@@ -2296,10 +2295,12 @@ do
             local Atheon = Vector3.new(-2415, 129, 6344)
             local RadioactiveExperiment = Vector3.new(-2290, 242, 3090)
             local SuspendedUnborn = Vector3.new(-5325, 428, 3754)
+            local LimorTheDevourer = Vector3.new(-1093.03, -169.142, 7769.19)
             makespecialtpbutton("Atheon (changes servers)", Atheon)
             makespecialtpbutton("Warlord", Warlord)
             makespecialtpbutton("Radioactive Experiment", RadioactiveExperiment)
             makespecialtpbutton("Suspended Unborn", SuspendedUnborn)
+            makespecialtpbutton("Limor The Devourer", LimorTheDevourer)
             makehuntertp()
         
         elseif placeid == 11331145451 then -- halloween
