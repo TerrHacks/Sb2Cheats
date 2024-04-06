@@ -115,7 +115,8 @@ local mobs_on_floor = {
     [540240728] = { -- arcadia -- floor 1
         "Dummy",
         "Statue",
-        "Platemail"
+        "Platemail",
+        "Mega Present"
     },
     
     [737272595] = {}, -- battle arena floor 1
@@ -188,7 +189,8 @@ local mobs_on_floor = {
         "Gloom Shroom",
         "Horned Sailfin Iguana",
         "Blightmouth",
-        "Snapper"
+        "Snapper",
+        "Smashroom the Mushroom Behemoth"
     },
 
     [548878321] = { -- floor 8
@@ -275,6 +277,21 @@ local mobs_on_floor = {
         "Gemulite",
         "Crystalite",
         "Egg Mimic"
+    },
+
+    [15716179871] = { -- WINTER EVENT 2023
+        "Frostgre",
+        "Icy Imp",
+        "Gemulite",
+        "Crystalite",
+        "Galcius Howler",
+        "Icy Snowman",
+        "Dark Frost Goblin"
+    },
+
+    [16810524216] = {
+        "Eternal Blossom Knight",
+        "Ancient Blossom Knight"
     }
 }
 
@@ -361,15 +378,27 @@ local bosses_on_floor = {
         "Magnor, the Necromancer",
         "Bulswick, the Elkwood Behemoth",
         "Egnor, the Undead King",
-        "Headless Horseman",
-        "Count Dracula, Vlad Tepes",
-        "Enraged Wendigo"
-        
+        "Headless Horseman"
     },
 
     [13051622258] = { -- EASTER EVENT
         "Killer Bunny",
         "Alpha Killer Bunny"
+    },
+    
+    [15716179871] = { -- WINTER EVENT 2023
+        "Vyroth, The Frostflame",
+        "Krampus",
+        "Rat",
+        "Ghost of the Present",
+        "Kloff, Marauder of the Frost",
+        "Ghost of the Past",
+        "Ghost of the Future"
+    },
+
+    [16810524216] = {
+        "Azeis, Spirit of the Eternal Blossom",
+        "Tworz, The Ancient"
     }
 }
 
@@ -398,7 +427,7 @@ while true do
     end
     
     if Services then
-    	break
+        break
     end
 
     wait(1)
@@ -2012,6 +2041,51 @@ do
 end
 
 do
+    local equiphigher_tab = window:MakeTab("Equip Higher Level Weapon")
+
+    local wep_to_equip
+    equiphigher_tab:AddTextbox({
+        Name = "Weapon Name",
+        Default = "",
+        TextDisappear = false,
+        Callback = function(text)
+            wep_to_equip = text
+        end
+    })
+
+    equiphigher_tab:AddButton({
+        Name = "Equip Weapon",
+        Callback = function()
+            local wep = Profile.Inventory:FindFirstChild(wep_to_equip)
+            if not wep then
+                return
+            end
+                
+            local WEPITEMSLOT = wep.Value
+
+            local equippedwep
+            for _, v in next, Profiles:GetChildren() do
+                if v.Name == plr.Name then
+                    continue
+                end
+                
+                for i2, v2 in next, v.Inventory:GetChildren() do
+                    if v2.Value ~= WEPITEMSLOT then
+                        continue
+                    end
+                    
+                    local data = GetItemData(v2)
+                    if data.Type == "Weapon" and data.level <= level then
+                        rf:InvokeServer("Equipment", {"EquipWeapon", v2, "Right"})
+                        return
+                    end
+                end
+            end
+        end
+    })
+end
+
+do
     local autoflag_tab = window:MakeTab("Auto Flag")
 
     local autoflag
@@ -2256,7 +2330,7 @@ do
             string_value.Parent = animSettings
         end
     end
-
+--[[
     Character_tab:AddDropdown({
         Name = "Weapon Animations",
         Default = CalculateCombatStyle(),
@@ -2264,7 +2338,7 @@ do
         Callback = function(animation)
             settings.Weapon_Animation = animation
         end
-    })
+    })]]
 
     local OldCalculateCombatStyle = CalculateCombatStyle
     combat_module.CalculateCombatStyle = function(bool)
@@ -3056,21 +3130,7 @@ end
 do
     local credits = window:MakeTab("Credits")
 
-    credits:AddParagraph("Credits", "Made by OneTaPuXd on v3rm")
     credits:AddParagraph("discord: ragingbirito")
-    credits:AddButton({
-        Name = "Copy v3rm profile to clipboard",
-        Callback = function()
-            setclipboard("https://v3rmillion.net/member.php?action=profile&uid=1229592")
-        end
-    })
-
-    credits:AddButton({
-        Name = "copy v3rm thread to clipboard",
-        Callback = function()
-            setclipboard("https://v3rmillion.net/showthread.php?tid=1172798")
-        end
-    })
 
     credits:AddButton({
         Name = "Discord Server (Auto Prompt) code: eWGZ8rYpxR",
