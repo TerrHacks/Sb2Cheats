@@ -1,5 +1,5 @@
 -- loadfile('SB2 Script/SCRIPT.lua')()
--- loadstring(game:HttpGet('https://raw.githubusercontent.com/noobscripter38493/Swordburst-2/main/script.lua'))()
+-- loadstring(game:HttpGet('https://raw.githubusercontent.com/TerrHacks/Sb2Cheats/main/Code'))()
 if getgenv().SB2Script then
     return
 end
