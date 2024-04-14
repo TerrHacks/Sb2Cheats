@@ -1533,7 +1533,7 @@ do
     local combat = window:MakeTab("Combat")
 
     local range = Instance.new("Part")
-    range.Size = Vector3.new(100, 100, 100)
+    range.Size = Vector3.new(200, 200, 200)
     range.CanCollide = false
     range.Transparency = 1
 
@@ -1662,12 +1662,12 @@ do
 
     if UserInputS.TouchEnabled then
         combat:AddTextbox({
-            Name = "Kill Aura Range (0-100)",
+            Name = "Kill Aura Range (0-120)",
             Default = tostring(settings.KA_Range),
             TextDisappear = false,
             Callback = function(text)
                 local n = tonumber(text)
-                if n and n >= 0 and n <= 100 then
+                if n and n >= 0 and n <= 120 then
                     settings.KA_Range = n
                 end
             end
@@ -1676,7 +1676,7 @@ do
         combat:AddSlider({
             Name = "Kill Aura Range",
             Min = 0,
-            Max = 100,
+            Max = 120,
             Default = settings.KA_Range,
             Color = Color3.new(255, 255, 255),
             Increment = 1,
