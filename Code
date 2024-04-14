@@ -2012,12 +2012,12 @@ do
 
         if UserInputS.TouchEnabled then
             AutofarmYOffsetTab:AddTextbox({
-                Name = mob_name .. " -60-60",
+                Name = mob_name .. "-60-60",
                 Default = tostring(Autofarm_Y_Offsets[mob_name]),
                 TextDisappear = false,
                 Callback = function(text)
                     local a = tonumber(text)
-                    if a and a >= -60 and a <= 60 then
+                    if a and a >= "-60" and a <= 60 then
                         Autofarm_Y_Offsets[mob_name] = a
                     end
                 end
@@ -2025,7 +2025,7 @@ do
         else
             AutofarmYOffsetTab:AddSlider({
                 Name = mob_name,
-                Min = -60,
+                Min = "-60",
                 Max = 60,
                 Default = Autofarm_Y_Offsets[mob_name],
                 Color = Color3.new(255, 255, 255),
