@@ -803,7 +803,7 @@ end
 
 local orion = CoreGui:WaitForChild("Orion")
 
-local window = lib:MakeWindow("SB2 | discord: ragingbirito | v3rm: OneTaPuXd | .gg/eWGZ8rYpxR")
+local window = lib:MakeWindow("SB2 | discord: ragingbirito | Updated by : TerraOnTop | .gg/eWGZ8rYpxR")
 
 local rarities = {"Common", "Uncommon", "Rare", "Legendary", "Tribute"}
 local names = {"Commons", "Uncommons", "Rares", "Legendaries", "Tributes"}
