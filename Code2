@@ -25,14 +25,14 @@ local SendWebhook do
     SendWebhook = function(Url, Body, Ping)
         if typeof(Url) == 'string' and string.match(Url, '^https://discord.com/api/webhooks/') and typeof(Body) == 'table' then
             Body.content = Ping and '@everyone' or nil
-            Body.username = 'Bluu'
-            Body.avatar_url = 'https://raw.githubusercontent.com/Neuublue/Bluu/main/Bluu.png'
+            Body.username = 'Sb2 Drops'
+            Body.avatar_url = 'https://files.catbox.moe/x5ierh.png'
             if not Body.embeds then
                 Body.embeds = { {} }
             end
             Body.embeds[1].footer = {
-                text = 'Bluu',
-                icon_url = 'https://raw.githubusercontent.com/Neuublue/Bluu/main/Bluu.png'
+                text = 'Sb2 Drops',
+                icon_url = 'https://files.catbox.moe/x5ierh.png'
             }
             Body.embeds[1].timestamp = DateTime:now():ToIsoDate()
             http_request({
