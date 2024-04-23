@@ -339,6 +339,7 @@ Autofarm:AddToggle('UseWaypoint', { Text = 'Use waypoint' }):OnChanged(function(
 end)
 
 local MobList = {
+    [16810524216] = { 'Eternal Blossom Knight', 'Ancient Blossom Knight', 'Azeis, Spirit of the Eternal Blossom', 'Tworz, The Ancient'},
     [6144637080] = { 'Crystal Lizard', 'Newborn Abomination', 'Scav', 'Bat', 'Failed Experiment', 'Orange Failed Experiment', 'Blue Failed Experiment', 'Radio Slug', 'Elite Scav', 'Suspended Unborn', 'C-618 Uriotol, The Forgotten Hunter', 'Radioactive Experiment', 'Limor the Devourer', 'Warlord', 'Atheon', 'Ancient Wooden Chest' },
     [11331145451] = { 'Black Widow', 'Bloodshard Spider', 'Spiritual Hound', 'Hostile Omen', 'Harbinger', 'Mutated Pumpkin', 'Stone Gargoyle', 'Cursed Skeleton', 'Werewolf', 'Mud Brute', 'Sorcerer', 'Elkwood Giant', 'Alpha Werewolf', 'The Cucurbita', 'Bulswick, the Elkwood Behemoth', 'Egnor, the Undead King', 'Magnor, the Necromancer', 'Headless Horseman', 'Candy Chest', 'Halloween Chest' },
     [13051622258] = { 'Crystalite', 'Gemulite', 'Easterian Knight', 'Egg Mimic', 'Killer Bunny', 'Ultra Killer Bunny', '' },
